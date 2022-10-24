@@ -1,3 +1,24 @@
 button {
     cursor: pointer;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+body,
+h1,
+p,
+hr,
+button,
+span,
+::placeholder,
+input,
+a {
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.loading {
+    text-align: center;
+    font-size: 100px;
+    margin-top: 80px;
+}

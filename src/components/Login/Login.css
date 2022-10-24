@@ -1,0 +1,156 @@
+/* google sign in  */
+
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.g-sign-in-button {
+    margin: 10px;
+    display: block;
+    width: 240px;
+    height: 50px;
+    background-color: #4285f4;
+    color: #fff;
+    border-radius: 1px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
+    transition: background-color .218s, border-color .218s, box-shadow .218s;
+}
+
+.g-sign-in-button:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 3px 3px rgba(66, 133, 244, .3);
+    box-shadow: 0 0 3px 3px rgba(66, 133, 244, .3);
+}
+
+.g-sign-in-button:active {
+    background-color: #3367D6;
+    transition: background-color 0.2s;
+}
+
+.g-sign-in-button .content-wrapper {
+    height: 100%;
+    width: 100%;
+    border: 1px solid transparent;
+}
+
+.g-sign-in-button img {
+    width: 18px;
+    height: 18px;
+}
+
+.g-sign-in-button .logo-wrapper {
+    padding: 15px;
+    background: #fff;
+    width: 48px;
+    height: 100%;
+    border-radius: 1px;
+    display: inline-block;
+}
+
+.g-sign-in-button .text-container {
+    font-family: Roboto, arial, sans-serif;
+    font-weight: 500;
+    letter-spacing: .21px;
+    font-size: 16px;
+    line-height: 48px;
+    vertical-align: top;
+    border: none;
+    display: inline-block;
+    text-align: center;
+    width: 180px;
+}
+
+.g-sign-in-button {
+    margin: 0 auto;
+
+
+}
+
+/* ===================================== */
+
+* {
+    box-sizing: border-box
+}
+
+form {
+    width: 30%;
+    margin: 0 auto;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 20px 36px;
+}
+
+/* Full-width input fields */
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.loginbtn {
+    background-color: chocolate;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.registerbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.registerbtn:hover {
+    opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+    color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+/* ============================================ */
+.error-message {
+    color: red;
+
+}
