@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import './Product.css';
 
-const Product = ({product, handleAddToCart}) => {
+const Product = ({product,  handleAddToCart}) => {
     // const {product, handleAddToCart} = props;
     const { name, img, seller, price, ratings } = product;
     

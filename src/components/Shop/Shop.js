@@ -1,38 +1,80 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useProducts } from '../../hooks/useProducts';
+import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
+import { addToDb, getStoredCart } from '../utilities/fakeDb';
 import './Shop.css';
 
 const Shop = () => {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useProducts();
+    // importing from the local storage which means out of the code. That's why need to use side effect
     const [cart, setCart] = useState([]);
+    useEffect(() => {
+        const storedCart = getStoredCart();
+        const savedCart = [];
+        for (const id in storedCart) {
+            const addedProduct = products.find(product => product.id === id)
+            if (addedProduct) {
+                const quantity = storedCart[id];
+                addedProduct.quantity = quantity;
+                savedCart.push(addedProduct)
+            }
+        }
+        setCart(savedCart)
 
-    useEffect( () =>{
-        fetch('products.json')
-        .then(res=> res.json())
-        .then(data => setProducts(data))
-    }, []);
+    }, [products]);
+    const handleAddToCart = (selectedProduct) => {
 
-    const handleAddToCart = (product) =>{
-        console.log(product);
+        // creating a new array and setting to the: cart
         // do not do this: cart.push(product);
-        const newCart = [...cart, product];
+        let newCart = [];
+
+        console.log(`selectedProduct quantity:  ${selectedProduct.quantity}`)
+        // showing on the cart UI
+        const exists = cart.find(product => selectedProduct.id === product.id);
+        if (!exists) {
+            selectedProduct.quantity = 1;
+            newCart = [...cart, selectedProduct];
+
+        } else {
+            const rest = cart.filter(product => product.id !== selectedProduct.id);
+            // you can also use: selectedProduct.quantity = exists.quantity + 1; 
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest, exists]
+
+        }
+
         setCart(newCart);
+
+        // adding to localstorage 
+        addToDb(selectedProduct.id);
+
     }
+
 
     return (
         <div className='shop-container'>
             <div className="products-container">
                 {
-                    products.map(product=><Product 
+                    products.map(product => <Product
                         key={product.id}
                         product={product}
                         handleAddToCart={handleAddToCart}
-                        ></Product>)
+
+                    ></Product>)
                 }
             </div>
             <div className="cart-container">
-                <h4>Order Summary</h4>
-                <p>Selected Items: {cart.length}</p>
+                <Cart
+                    cart={cart}
+
+                >
+                    <Link to={`/orders`}>
+                        <button>Review Item</button>
+                    </Link>
+
+                </Cart>
             </div>
         </div>
     );
